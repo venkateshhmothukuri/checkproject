@@ -1,0 +1,41 @@
+<div>
+
+
+    <div>
+
+        <label>Search: </label>
+        <input [(ngModel)]="searchKeyword" placeholder="Search by Name"/>
+
+
+    </div>
+
+<input [(ngModel)]="newTask" placeholder="New Task/">
+
+<button (click)="addTask(newTask)"> Add Task</button>
+
+
+
+<div>
+
+    <label>Filter: </label>
+
+    <select [(ngModel)]="filter">
+
+    <option value="all">All</option>
+    <option value="completed">completed</option>
+    <option value="active">Active</option>
+
+    </select>
+</div>
+
+
+<div>
+
+    Total Tasks: {{totalTasksCount}} | completed Tasks: {{ completedTasksCount }}
+ 
+
+</div>
+
+<app-todo-item *ngFor="let task of tasks" [task]="task" (deleteTask)="deleteTask($event)"></app-todo-item>
+
+</div>
